@@ -1,12 +1,14 @@
-import './App.css'
-import { GlobalStyle } from './styles/global'
+import { ThemeProvider } from "styled-components";
+import "./App.css";
+import { GlobalStyle } from "./styles/global";
+import lightTheme from "./themes/lightTheme";
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyle />
-    </div>
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
