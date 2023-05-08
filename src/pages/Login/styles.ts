@@ -23,6 +23,7 @@ export const MenuContainer = styled.div`
 export const MenuImgContainer = styled.img`
   object-fit: cover;
   margin-bottom: 1rem;
+  flex: 1;
 `;
 export const HeaderMenuContainer = styled.div`
   display: flex;
@@ -31,7 +32,9 @@ export const HeaderMenuContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const FormContainer = styled.form``;
+export const FormContainer = styled.form`
+  flex: 1
+`;
 
 export const LabelCheckBoxContainer = styled.label`
   font-size: 1rem;
@@ -52,4 +55,16 @@ export const InputTextContainer = styled.input`
   padding: 1rem;
   width: 20rem;
 
+  &::placeholder {
+    opacity: 0.5;
+  }
 `;
+
+export const FooterContainer = styled.footer`
+  padding: 2.5rem;
+
+  img {
+    width: 100%;
+  }
+
+`

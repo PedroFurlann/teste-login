@@ -4,7 +4,7 @@ export default {
   colors: {
     background: '#FFF',
     text: '#8D8D99',
-    blue: '#0000CD',
+    blue: '#4169E1',
     footer: '#FFF'
   }
 }
