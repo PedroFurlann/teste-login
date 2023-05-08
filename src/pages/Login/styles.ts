@@ -11,6 +11,8 @@ export const LoginImgContainer = styled.img`
 `;
 
 export const MenuContainer = styled.div`
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
   display: flex;
   flex-direction: column;
   align-items: center;

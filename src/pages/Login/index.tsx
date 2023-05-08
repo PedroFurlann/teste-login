@@ -1,6 +1,13 @@
-import { Container, HeaderMenuContainer, LoginImgContainer, MenuContainer, MenuImgContainer } from "./styles";
-import login_img from '../../assets/login_img.jpeg'
-import menu_img from '../../assets/logo_waybe.jpeg'
+import {
+  Container,
+  HeaderMenuContainer,
+  LoginImgContainer,
+  MenuContainer,
+  MenuImgContainer,
+} from "./styles";
+import login_img from "../../assets/login_img.jpeg";
+import menu_img from "../../assets/logo_waybe.jpeg";
+import { TitleAndSubtitle } from "../../components/TitleAndSubtitle";
 
 export function Login() {
   return (
@@ -9,9 +16,11 @@ export function Login() {
       <MenuContainer>
         <HeaderMenuContainer>
           <MenuImgContainer src={menu_img} />
-          <p>ladsdasddsdsadsadsadsadasd</p>   
-          <p>dsdsadsadsadsadsadsadsadsadsa</p>
-        </HeaderMenuContainer>     
+          <TitleAndSubtitle
+            title="Bem vindo ao Waybe ERP!"
+            subtitle="Por favor, insira seus dados para efetuar o login"
+          />
+        </HeaderMenuContainer>
       </MenuContainer>
     </Container>
   );
