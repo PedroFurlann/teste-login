@@ -18,15 +18,38 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 35%;
-`
+`;
 
 export const MenuImgContainer = styled.img`
   object-fit: cover;
   margin-bottom: 1rem;
-`
+`;
 export const HeaderMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-`
+`;
+
+export const FormContainer = styled.form``;
+
+export const LabelCheckBoxContainer = styled.label`
+  font-size: 1rem;
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const InputCheckBoxContainer = styled.input`
+  border: none;
+  margin-right: 0.5rem;
+`;
+
+export const InputTextContainer = styled.input`
+  border-radius: 8px;
+  border: 0;
+  font-size: 1rem;
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
+  padding: 1rem;
+  width: 20rem;
+
+`;

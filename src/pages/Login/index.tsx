@@ -1,6 +1,10 @@
 import {
   Container,
+  FormContainer,
   HeaderMenuContainer,
+  InputCheckBoxContainer,
+  InputTextContainer,
+  LabelCheckBoxContainer,
   LoginImgContainer,
   MenuContainer,
   MenuImgContainer,
@@ -21,6 +25,18 @@ export function Login() {
             subtitle="Por favor, insira seus dados para efetuar o login"
           />
         </HeaderMenuContainer>
+        <FormContainer>
+          <InputTextContainer type="text" placeholder="Email"  />
+          <hr style={{ marginBottom: 16 }} />
+          <InputTextContainer type="password" placeholder="Senha" />
+          <hr style={{ marginBottom: 10 }} />
+
+
+          <InputCheckBoxContainer type="checkbox" />
+          <LabelCheckBoxContainer>
+            Lembrar usuário
+          </LabelCheckBoxContainer>
+        </FormContainer>
       </MenuContainer>
     </Container>
   );
