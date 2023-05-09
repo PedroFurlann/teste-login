@@ -2,9 +2,9 @@ export default {
   title: 'dark',
 
   colors: {
-    background: '#121214',
-    text: '#C4C4CC',
+    background: '#212426',
+    text: '#ABACAD',
     blue: '#87CEFA',
-    footer: '#C4C4CC'
+    footer: '#3D4247'
   }
 }

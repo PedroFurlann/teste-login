@@ -10,6 +10,11 @@ export const ButtonContainer = styled.button`
   padding: 0.675rem;
   background-color: ${(props) => props.theme.colors.blue};
   border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `
 
 export const TextContainer = styled.p`
