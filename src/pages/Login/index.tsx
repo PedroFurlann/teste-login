@@ -1,4 +1,6 @@
 import {
+  ButtonAndTextContainer,
+  CheckBoxContainer,
   Container,
   FooterContainer,
   FormContainer,
@@ -9,6 +11,7 @@ import {
   LoginImgContainer,
   MenuContainer,
   MenuImgContainer,
+  TextContainer,
 } from "./styles";
 import login_img from "../../assets/login_img.jpeg";
 import menu_img from "../../assets/logo_waybe.jpeg";
@@ -33,20 +36,29 @@ export function Login() {
           <InputTextContainer type="text" placeholder="Email"  />
           <hr style={{ marginBottom: 16 }} />
           <InputTextContainer type="password" placeholder="Senha" />
-          <hr style={{ marginBottom: 10 }} />
+          <hr style={{ marginBottom: 24 }} />
           
 
           
-          <InputCheckBoxContainer type="checkbox" />
-          <LabelCheckBoxContainer>
-            Lembrar usuário
-          </LabelCheckBoxContainer>
+          <CheckBoxContainer>
+            <InputCheckBoxContainer type="checkbox" />
+            <LabelCheckBoxContainer>
+              Lembrar usuário
+            </LabelCheckBoxContainer>
+          </CheckBoxContainer>
           
 
-        <Button type="submit" text="Entrar" />
+        <ButtonAndTextContainer>
+          <Button type="submit" text="Entrar" style={{ marginBottom: 16 }} />
+          <TextContainer>
+            Esqueci minha senha
+          </TextContainer>
+        </ButtonAndTextContainer>    
         
         </FormContainer>
 
+
+        
         <FooterContainer>
           <img src={footer_img} alt=""/>
         </FooterContainer>
