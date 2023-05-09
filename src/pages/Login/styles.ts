@@ -43,6 +43,7 @@ export const HeaderMenuContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   margin-bottom: 4rem;
 `;
 
@@ -69,7 +70,7 @@ export const InputTextContainer = styled.input`
   border-radius: 8px;
   border: 0;
   font-size: 1rem;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.footer};
   color: ${(props) => props.theme.colors.text};
   padding: 1rem;
   width: 20rem;
@@ -92,7 +93,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.footer};
 
   @media (max-width: 1000px) {
     img {
