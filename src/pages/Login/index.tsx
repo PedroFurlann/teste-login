@@ -19,10 +19,33 @@ import footer_img from "../../assets/logo_sifat_light.jpeg";
 import { TitleAndSubtitle } from "../../components/TitleAndSubtitle";
 import { Button } from "../../components/Button";
 import { ChangeEvent, useState } from "react";
+import api from "../../lib/axios";
+import axios from "axios";
 
 export function Login() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
+
+  let postData = {
+    usuario: user,
+    senha: password
+  }
+
+  const data = JSON.stringify(postData)
+
+  console.log(data)
+
+  async function postingDataForAuthentication() {
+    try {
+      event?.preventDefault()
+      await axios.post('https://sifat.com.br/testes/api-php-e1j45/', data).then((response) => {
+        console.log(response.data);
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   function handleUserChange(event: ChangeEvent<HTMLInputElement>) {
     setUser(event.target.value);
@@ -65,7 +88,7 @@ export function Login() {
           </CheckBoxContainer>
 
           <ButtonAndTextContainer>
-            <Button type="submit" text="Entrar" style={{ marginBottom: 16 }} />
+            <Button type="submit" text="Entrar" style={{ marginBottom: 16 }} onClick={postingDataForAuthentication} />
             <TextContainer>Esqueci minha senha</TextContainer>
           </ButtonAndTextContainer>
         </FormContainer>
