@@ -74,6 +74,24 @@ export const InputCheckBoxContainer = styled.input`
   margin-right: 0.5rem;
 `;
 
+export const InputPasswordContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+
+export const ButtonIconContainer = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  background-color: color;
+  border-radius: 0.5rem;
+  padding: 0.675rem;
+  background-color: ${(props) => props.theme.colors.text};
+  border: none;
+  cursor: pointer;
+`
+
 export const InputTextContainer = styled.input`
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;

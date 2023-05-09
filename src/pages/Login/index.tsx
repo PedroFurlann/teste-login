@@ -1,12 +1,14 @@
 import {
   AuthenticatedContainer,
   ButtonAndTextContainer,
+  ButtonIconContainer,
   CheckBoxContainer,
   Container,
   FooterContainer,
   FormContainer,
   HeaderMenuContainer,
   InputCheckBoxContainer,
+  InputPasswordContainer,
   InputTextContainer,
   LabelCheckBoxContainer,
   LoginImgContainer,
@@ -18,8 +20,9 @@ import login_img from "../../assets/login_img.jpeg";
 import menu_img from "../../assets/logo_waybe.png";
 import { TitleAndSubtitle } from "../../components/TitleAndSubtitle";
 import { Button } from "../../components/Button";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { Eye } from "phosphor-react";
 
 interface Props {
   footer_img: string;
@@ -37,6 +40,8 @@ export function Login({ footer_img, onChangeTheme }: Props) {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [nameAndMessage, setNameAndMessage] = useState<ResponseData>();
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
   function handleUserChange(event: ChangeEvent<HTMLInputElement>) {
     setUser(event.target.value);
   }
@@ -47,6 +52,15 @@ export function Login({ footer_img, onChangeTheme }: Props) {
 
   function handleChangeIsAuthenticate() {
     setIsAuthenticate(false)
+  }
+
+  function handleShowPassword() {
+    if(inputRef.current?.type === "password") {
+      inputRef.current.type = "text"
+    } else {
+      if(inputRef.current !== null)
+      inputRef.current.type = "password"
+    }
   }
 
   let postData = {
@@ -62,13 +76,14 @@ export function Login({ footer_img, onChangeTheme }: Props) {
       await axios
         .post("https://sifat.com.br/testes/api-php-e1j45/", data)
         .then((response) => {
+          console.log(response.data)
           setNameAndMessage(response.data);
           setIsAuthenticate(true);
         });
     } catch (error) {
       console.log(error);
-      alert("Erro ao se autenticar");
-    }
+      alert("Erro ao se autenticar: usuário ou senha incorretos!");
+    } 
   }
 
   useEffect(() => {}, [nameAndMessage]);
@@ -100,12 +115,19 @@ export function Login({ footer_img, onChangeTheme }: Props) {
               style={{ marginTop: 42 }}
             />
             <hr style={{ marginBottom: 16 }} />
-            <InputTextContainer
-              type="password"
-              placeholder="Senha"
-              onChange={handlePasswordChange}
-              required
-            />
+            <InputPasswordContainer>
+              <InputTextContainer
+                type="password"
+                placeholder="Senha"
+                onChange={handlePasswordChange}
+                ref={inputRef}
+                required
+              />
+
+              <ButtonIconContainer type="button" onClick={handleShowPassword}>
+                <Eye />
+              </ButtonIconContainer>
+            </InputPasswordContainer>
             <hr style={{ marginBottom: 24 }} />
             <CheckBoxContainer>
               <InputCheckBoxContainer type="checkbox" />
