@@ -77,17 +77,23 @@ export const InputCheckBoxContainer = styled.input`
 export const InputPasswordContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  
+  svg {
+    color: ${(props) => props.theme.colors.text};
+  }
 `
 
 export const ButtonIconContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 5rem;
   background-color: color;
+  outline: unset;
+  position: relative;
+  border: unset;
   border-radius: 0.5rem;
   padding: 0.675rem;
-  background-color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.footer};
   border: none;
   cursor: pointer;
 `

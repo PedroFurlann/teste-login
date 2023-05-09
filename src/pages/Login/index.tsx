@@ -24,6 +24,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { Eye } from "phosphor-react";
 
+
 interface Props {
   footer_img: string;
   onChangeTheme: () => void;
@@ -51,6 +52,7 @@ export function Login({ footer_img, onChangeTheme }: Props) {
   }
 
   function handleChangeIsAuthenticate() {
+    window.location.reload()
     setIsAuthenticate(false)
   }
 
@@ -124,8 +126,8 @@ export function Login({ footer_img, onChangeTheme }: Props) {
                 required
               />
 
-              <ButtonIconContainer type="button" onClick={handleShowPassword}>
-                <Eye />
+              <ButtonIconContainer type="button" onClick={handleShowPassword} style={{ marginLeft: -46 }}>
+                <Eye size={20} weight="bold" />
               </ButtonIconContainer>
             </InputPasswordContainer>
             <hr style={{ marginBottom: 24 }} />
