@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const LoginImgContainer = styled.img`
-  height: 100vh;
+  height: 100%;
   width: 65%;
 
   @media (max-width: 1000px) {
@@ -17,7 +17,6 @@ export const LoginImgContainer = styled.img`
     width: 100%;
   }
 `;
-
 
 export const MenuContainer = styled.div`
   background-color: ${(props) => props.theme.colors.background};
@@ -57,7 +56,7 @@ export const AuthenticatedContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   flex: 1;
-`
+`;
 
 export const CheckBoxContainer = styled.div`
   display: flex;
@@ -72,16 +71,17 @@ export const LabelCheckBoxContainer = styled.label`
 export const InputCheckBoxContainer = styled.input`
   border: none;
   margin-right: 0.5rem;
+  background-color: transparent;
 `;
 
 export const InputPasswordContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  
+
   svg {
     color: ${(props) => props.theme.colors.text};
   }
-`
+`;
 
 export const ButtonIconContainer = styled.button`
   display: flex;
@@ -96,7 +96,7 @@ export const ButtonIconContainer = styled.button`
   background-color: ${(props) => props.theme.colors.footer};
   border: none;
   cursor: pointer;
-`
+`;
 
 export const InputTextContainer = styled.input`
   border-top-right-radius: 8px;
