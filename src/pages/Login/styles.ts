@@ -132,7 +132,7 @@ export const FooterContainer = styled.footer`
   }
 `;
 
-export const TextContainer = styled.p`
+export const TextContainer = styled.a`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.blue};
   text-decoration: underline;

@@ -151,7 +151,7 @@ export function Login({ footer_img, onChangeTheme }: Props) {
                 style={{ marginBottom: 16 }}
                 onClick={postingDataForAuthentication}
               />
-              <TextContainer>Esqueci minha senha</TextContainer>
+              <TextContainer href="#">Esqueci minha senha</TextContainer>
             </ButtonAndTextContainer>
           </FormContainer>
         ) : (
