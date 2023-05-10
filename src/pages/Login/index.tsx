@@ -2,6 +2,7 @@ import {
   AuthenticatedContainer,
   ButtonAndTextContainer,
   ButtonIconContainer,
+  ChangeThemeButtonContainer,
   CheckBoxContainer,
   Container,
   FooterContainer,
@@ -24,7 +25,6 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { Eye } from "phosphor-react";
 
-
 interface Props {
   footer_img: string;
   onChangeTheme: () => void;
@@ -40,8 +40,9 @@ export function Login({ footer_img, onChangeTheme }: Props) {
   const [user, setUser] = useState("");
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [nameAndMessage, setNameAndMessage] = useState<ResponseData>();
+  const [isChecked, setIsChecked] = useState(false);
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null);
 
   function handleUserChange(event: ChangeEvent<HTMLInputElement>) {
     setUser(event.target.value);
@@ -51,17 +52,21 @@ export function Login({ footer_img, onChangeTheme }: Props) {
     setPassword(event.target.value);
   }
 
+  function handleChangeTheme() {
+    onChangeTheme();
+    setIsChecked(!isChecked);
+  }
+
   function handleChangeIsAuthenticate() {
-    window.location.reload()
-    setIsAuthenticate(false)
+    window.location.reload();
+    setIsAuthenticate(false);
   }
 
   function handleShowPassword() {
-    if(inputRef.current?.type === "password") {
-      inputRef.current.type = "text"
+    if (inputRef.current?.type === "password") {
+      inputRef.current.type = "text";
     } else {
-      if(inputRef.current !== null)
-      inputRef.current.type = "password"
+      if (inputRef.current !== null) inputRef.current.type = "password";
     }
   }
 
@@ -78,14 +83,14 @@ export function Login({ footer_img, onChangeTheme }: Props) {
       await axios
         .post("https://sifat.com.br/testes/api-php-e1j45/", data)
         .then((response) => {
-          console.log(response.data)
+          console.log(response.data);
           setNameAndMessage(response.data);
           setIsAuthenticate(true);
         });
     } catch (error) {
       console.log(error);
       alert("Erro ao se autenticar: usuário ou senha incorretos!");
-    } 
+    }
   }
 
   useEffect(() => {}, [nameAndMessage]);
@@ -95,20 +100,20 @@ export function Login({ footer_img, onChangeTheme }: Props) {
       <LoginImgContainer src={login_img} />
       <MenuContainer>
         <HeaderMenuContainer>
-          <Button
-            text="Mudar tema"
-            onClick={onChangeTheme}
-            style={{ marginTop: -32, marginBottom: 16 }}
-          />
-
+          <ChangeThemeButtonContainer onClick={handleChangeTheme}>
+            <span className="switch">
+              <input type="checkbox" checked={isChecked} />
+              <span className="slider round"></span>
+            </span>
+          </ChangeThemeButtonContainer>
         </HeaderMenuContainer>
         {isAuthenticate === false ? (
           <FormContainer>
             <MenuImgContainer src={menu_img} alt="Logo Waybe" />
-             <TitleAndSubtitle
-            title="Bem vindo ao Waybe ERP!"
-            subtitle="Por favor, insira seus dados para efetuar o login."
-          />
+            <TitleAndSubtitle
+              title="Bem vindo ao Waybe ERP!"
+              subtitle="Por favor, insira seus dados para efetuar o login."
+            />
             <InputTextContainer
               type="text"
               placeholder="Email"
@@ -126,7 +131,11 @@ export function Login({ footer_img, onChangeTheme }: Props) {
                 required
               />
 
-              <ButtonIconContainer type="button" onClick={handleShowPassword} style={{ marginLeft: -46 }}>
+              <ButtonIconContainer
+                type="button"
+                onClick={handleShowPassword}
+                style={{ marginLeft: -46 }}
+              >
                 <Eye size={20} weight="bold" />
               </ButtonIconContainer>
             </InputPasswordContainer>
@@ -151,7 +160,9 @@ export function Login({ footer_img, onChangeTheme }: Props) {
               title={`Nome do usuário: ${nameAndMessage?.nome}`}
               subtitle={`${nameAndMessage?.mensagem}`}
             />
-            <Button text="Voltar" onClick={handleChangeIsAuthenticate}
+            <Button
+              text="Voltar"
+              onClick={handleChangeIsAuthenticate}
               style={{ marginTop: 16, marginBottom: 16 }}
             />
           </AuthenticatedContainer>

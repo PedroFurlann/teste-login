@@ -11,7 +11,7 @@ function App() {
   const [theme, setTheme] = useState(lightTheme)
   const [logoByTheme, setLogoByTheme] = useState(logo_sifat_light)
 
-  function handleChangeTheme() {
+  function changeTheme() {
     setTheme(theme === lightTheme ? darkTheme : lightTheme)
 
     setLogoByTheme(theme === lightTheme ? logo_sifat_dark : logo_sifat_light)
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Login onChangeTheme={handleChangeTheme} footer_img={logoByTheme} />
+      <Login onChangeTheme={changeTheme} footer_img={logoByTheme} />
       <GlobalStyle />
     </ThemeProvider>
   );

@@ -138,3 +138,72 @@ export const TextContainer = styled.p`
   text-decoration: underline;
   margin-bottom: 1rem;
 `;
+
+export const ChangeThemeButtonContainer = styled.button`
+  background-color: ${(props) => props.theme.colors.background};
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px red 33;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    margin-right: 1rem;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: ${(props) => props.theme.colors.text};
+    border-radius: 34px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: '';
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: ${(props) => props.theme.colors.background};
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  input:checked + .slider {
+    background-color: ${(props) => props.theme.colors.text};
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+`;
