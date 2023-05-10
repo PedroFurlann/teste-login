@@ -26,7 +26,7 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 35%;
-  margin-top: 10rem;
+  margin-top: 5rem;
   @media (max-width: 1000px) {
     width: 100%;
     height: 50%;
@@ -60,7 +60,7 @@ export const AuthenticatedContainer = styled.div`
 
 export const CheckBoxContainer = styled.div`
   display: flex;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 `;
 
 export const LabelCheckBoxContainer = styled.label`

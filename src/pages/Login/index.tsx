@@ -119,7 +119,7 @@ export function Login({ footer_img, onChangeTheme }: Props) {
               placeholder="Email"
               onChange={handleUserChange}
               required
-              style={{ marginTop: 42 }}
+              style={{ marginTop: 80 }}
             />
             <hr style={{ marginBottom: 16 }} />
             <InputPasswordContainer>
